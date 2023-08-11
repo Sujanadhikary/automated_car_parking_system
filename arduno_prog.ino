@@ -2,8 +2,6 @@
 //4TH SEMESTER MINI PROJECT [RVS COLLEGE OF ENGINEERING AND TECHNOLOGY]
 //BY:- 1, UJJWAL SHARMA
 //     2, SUAJN ADHIKARY
-//     3, PRACHI SINHA
-//     4, NIDHI KUMARI 
 #include <Wire.h>           
 #include <LiquidCrystal_I2C.h>    
 LiquidCrystal_I2C lcd(0x27,16,2);   
