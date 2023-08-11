@@ -1,5 +1,5 @@
 //ARDUINO (automatic car parking) 
-//4TH SEMESTER MINI PROJECT [RVSCET]
+//4TH SEMESTER MINI PROJECT [RVS COLLEGE OF ENGINEERING AND TECHNOLOGY]
 //BY:- 1, UJJWAL SHARMA
 //     2, SUAJN ADHIKARY
 //     3, PRACHI SINHA
@@ -9,18 +9,27 @@
 LiquidCrystal_I2C lcd(0x27,16,2);   
  #include <Servo.h>   
  Servo myservo1;  
- int IR1 = 4; // IR Sensor 1  
- int IR2 = 7; // IR Sensor 2  
+ const int IR1 = 4; // IR Sensor 1  
+ const int IR2 = 7; // IR Sensor 2  
+ const int buzzer = 2;
+ const int ledred = 13;
+ const int ledgreen = 11;
  int Slot = 5;      // Total number of parking Slots  
  int flag1 = 0;  
  int flag2 = 0; 
- int buzzer = 2;
- int ledred = 13;
- int ledgreen = 11;
+
+void displayname(string name, string roll_no){
+        lcd.setCursor (0,0);
+        lcd.print(name);
+        lcd.setCursor (0,1);
+        lcd.print(roll_no);
+        delay (2000);
+        lcd.clear();
+}
   
  void setup()  
       {  
-        lcd.begin();      
+        lcd.init();      
         lcd.backlight();  
         pinMode(IR1, INPUT);  
         pinMode(IR2, INPUT);
@@ -34,7 +43,13 @@ LiquidCrystal_I2C lcd(0x27,16,2);
         lcd.print("      By  ");  
         delay (2000);
         lcd.clear();
-        
+       string name[4] = {"Ujjwal Sharma", "Sujan Adhikary", "Pranchi Sinha", "Nidhi Kumari"};
+       string roll_num = {" ECE/462/21L", " ECE/461/21L", " ECE/582/21L", " ECE/581/21L",}
+       for(int i=0;i<4;i++){
+         displayname(name[i],roll_num[i]);
+       }
+
+       
         lcd.setCursor (0,0);
         lcd.print("Ujjwal sharma");
         lcd.setCursor (0,1);
