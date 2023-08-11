@@ -2,8 +2,13 @@
 //4TH SEMESTER MINI PROJECT [RVS COLLEGE OF ENGINEERING AND TECHNOLOGY]
 //BY:- 1, UJJWAL SHARMA
 //     2, SUAJN ADHIKARY
+//     3, PRACHI SINHA
+//     4, NIDHI KUMARI 
+
+
 #include <Wire.h>           
-#include <LiquidCrystal_I2C.h>    
+#include <LiquidCrystal_I2C.h>
+#include <String.h>    
 LiquidCrystal_I2C lcd(0x27,16,2);   
  #include <Servo.h>   
  Servo myservo1;  
@@ -16,9 +21,10 @@ LiquidCrystal_I2C lcd(0x27,16,2);
  int flag1 = 0;  
  int flag2 = 0; 
 
-void displayname(string name, string roll_no){
+
+void displayname(String names, String roll_no){
         lcd.setCursor (0,0);
-        lcd.print(name);
+        lcd.print(names);
         lcd.setCursor (0,1);
         lcd.print(roll_no);
         delay (2000);
@@ -26,7 +32,7 @@ void displayname(string name, string roll_no){
 }
   
  void setup()  
-      {  
+      {
         lcd.init();      
         lcd.backlight();  
         pinMode(IR1, INPUT);  
@@ -35,51 +41,18 @@ void displayname(string name, string roll_no){
         pinMode(ledgreen,OUTPUT);  
         myservo1.attach(9);  
         myservo1.write(100);  
-        lcd.setCursor (0,0);  
-        lcd.print(" PARKING SYSTEM ");  
-        lcd.setCursor (0,1);  
-        lcd.print("      By  ");  
-        delay (2000);
-        lcd.clear();
-       string name[4] = {"Ujjwal Sharma", "Sujan Adhikary", "Pranchi Sinha", "Nidhi Kumari"};
-       string roll_num = {" ECE/462/21L", " ECE/461/21L", " ECE/582/21L", " ECE/581/21L",}
-       for(int i=0;i<4;i++){
-         displayname(name[i],roll_num[i]);
-       }
+
+        String names[4] = {"Ujjwal Sharma", "Sujan Adhikary", "Pranchi Sinha", "Nidhi Kumari"};
+        String roll_num[4] = {" ECE/462/21L", " ECE/461/21L", " ECE/582/21L", " ECE/581/21L"};
+        
+        displayname("PARKING SYSTEM", "      By  "); 
+        for(int i=0;i<4;i++){
+         displayname(names[i],roll_num[i]);
+          }     
+      } 
+
 
        
-        lcd.setCursor (0,0);
-        lcd.print("Ujjwal sharma");
-        lcd.setCursor (0,1);
-         lcd.print(" ECE/462/21L");
-        delay (2000);
-        lcd.clear();
-        
-        lcd.setCursor (0,0);
-        lcd.print("Sujan Adhikary");
-        lcd.setCursor(0,1);
-         lcd.print(" ECE/461/21L"); 
-        delay (2000);
-        lcd.clear();
-
-        lcd.setCursor (0,0);
-        lcd.print(" Prachi Sinha");
-        lcd.setCursor(0,1);
-         lcd.print(" ECE/582/21L"); 
-        delay (2000);
-        lcd.clear();
-        
-        lcd.setCursor (0,0);
-        lcd.print(" Nidhi Kuamri");
-        lcd.setCursor(0,1);
-         lcd.print(" ECE/581/21L"); 
-        delay (2000);
-        lcd.clear();
-        
-           
-       } 
-
-        
  void loop()
         {   
            if(digitalRead (IR1) == LOW && flag1==0)
