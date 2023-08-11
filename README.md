@@ -13,10 +13,23 @@ This project showcases an automated car parking system using Arduino Uno, featur
 ## Circuit Diagram
 ![Circuit Diagram](link-to-your-circuit-diagram-image)
 
-## Installation and Setup
-1. Connect the hardware components based on the circuit diagram.
-2. Upload the provided Arduino code to the Arduino Uno.
-3. Power up the system and ensure all components are operational.
+### 3. Upload the Arduino Code
+1. Open the Arduino IDE (Integrated Development Environment) on your computer.
+2. Copy the provided Arduino code and paste it into a new Arduino sketch.
+3. Save the sketch with a descriptive name (e.g., "Car_Parking_System.ino").
+4. Connect your Arduino Uno to your computer via USB.
+5. Select the appropriate board (Arduino Uno) and port from the "Tools" menu in the Arduino IDE.
+6. Click the "Upload" button to upload the code to the Arduino Uno.
+
+### 4. Power Up the System
+1. Make sure all connections are secure and correct.
+2. Power up the Arduino Uno by connecting it to an appropriate power source.
+3. Verify that the display, IR sensors, green light, and red light are operational.
+4. Test the system by simulating car arrivals and departures to ensure accurate slot count and status indicators.
+
+That's it! Your Automated Car Parking System should now be set up and running.
+
+
 
 ## Code Explanation
 ```cpp
